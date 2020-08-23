@@ -1,6 +1,7 @@
 package com.chrisimi.versionchecker;
 
 import jdk.internal.util.xml.impl.Input;
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import sun.misc.Version;
 
@@ -19,15 +20,28 @@ public class VersionChecker
     /**
      * get the status for this plugin
      * @param plugin the {@linkplain JavaPlugin} instance of the plugin
-     * @param id the id from the spigot mc website
+     * @param id the id of the plugin from the spigot mc website
      * @return {@linkplain VersionStatus} status which represents the result
      */
-    public static VersionStatus getStatus(JavaPlugin plugin, String id)
+    public static VersionResult getStatus(JavaPlugin plugin, String id)
     {
-        //TODO implement
-        return null;
+        String spigotVersion = getSpigotVersion(id);
+        String localPluginVersion = getLocalPluginVersion(plugin);
+        VersionStatus status = checkVersionDiff(spigotVersion, localPluginVersion);
+
+        return new VersionResult(spigotVersion, localPluginVersion, status);
     }
 
+    private static VersionStatus checkVersionDiff(String spigotVersion, String localPluginVersion)
+    {
+        if(spigotVersion.isEmpty() || localPluginVersion.isEmpty())
+            return VersionStatus.ERROR;
+
+        if(spigotVersion.equalsIgnoreCase(localPluginVersion))
+            return VersionStatus.UP_TO_DATE;
+        else
+            return VersionStatus.OUTDATED;
+    }
 
     private static String getSpigotVersion(String id)
     {
@@ -74,5 +88,12 @@ public class VersionChecker
                 }
             }
         }
+    }
+
+    private static String getLocalPluginVersion(JavaPlugin plugin)
+    {
+        PluginDescriptionFile descriptionFile = plugin.getDescription();
+
+        return descriptionFile.getVersion();
     }
 }
