@@ -1,9 +1,7 @@
 package com.chrisimi.versionchecker;
 
-import jdk.internal.util.xml.impl.Input;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
-import sun.misc.Version;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
@@ -92,8 +90,14 @@ public class VersionChecker
 
     private static String getLocalPluginVersion(JavaPlugin plugin)
     {
-        PluginDescriptionFile descriptionFile = plugin.getDescription();
+        try
+        {
+            PluginDescriptionFile descriptionFile = plugin.getDescription();
 
-        return descriptionFile.getVersion();
+            return descriptionFile.getVersion();
+        } catch(Exception e)
+        {
+            return "";
+        }
     }
 }

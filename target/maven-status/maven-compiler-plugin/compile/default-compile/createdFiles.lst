@@ -1,0 +1,4 @@
+com\chrisimi\versionchecker\VersionResult.class
+test\java\VersionCheckerTests.class
+com\chrisimi\versionchecker\VersionStatus.class
+com\chrisimi\versionchecker\VersionChecker.class

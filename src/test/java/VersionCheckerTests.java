@@ -2,7 +2,6 @@ package test.java;
 
 import com.chrisimi.versionchecker.VersionChecker;
 import com.chrisimi.versionchecker.VersionResult;
-import com.chrisimi.versionchecker.VersionStatus;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
