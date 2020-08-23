@@ -17,7 +17,7 @@ public class VersionResult
 
     /**
      * get the version of the plugin which the version checker got from spigotmc
-     * @return
+     * @return String which contains the raw version from the current version on spigotmc
      */
     public String getSpigotPluginVersion()
     {
@@ -26,7 +26,7 @@ public class VersionResult
 
     /**
      * get the version of the plugin from the plugin.yml
-     * @return
+     * @return String which contains the raw version from the plugin.yml
      */
     public String getLocalPluginVersion()
     {

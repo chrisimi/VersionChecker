@@ -16,7 +16,7 @@ public enum VersionStatus
     UP_TO_DATE,
 
     /**
-     * an error occured while trying to check the version from spigot and plugin.yml perhaps you used an invalid plugin id
+     * an error occurred while trying to check the version from spigot and plugin.yml perhaps you used an invalid plugin id
      */
     ERROR
 }

@@ -6,7 +6,7 @@
 
     <groupId>com.chrisimi</groupId>
     <artifactId>versionchecker</artifactId>
-    <version>1.0</version>
+    <version>1.0-pre</version>
     <packaging>jar</packaging>
 
     <properties>

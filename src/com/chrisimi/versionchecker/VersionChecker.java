@@ -62,7 +62,7 @@ public class VersionChecker
             //get data from website
             StringBuilder sb = new StringBuilder();
              reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String line = "";
+            String line;
 
             while((line = reader.readLine()) != null)
                 sb.append(line);
