@@ -1,4 +1,4 @@
-package main.java.com.chrisimi.versionchecker;
+package com.chrisimi.versionchecker;
 
 public enum VersionStatus
 {
