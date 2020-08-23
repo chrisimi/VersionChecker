@@ -43,7 +43,6 @@ public class VersionChecker
 
     private static String getSpigotVersion(String id)
     {
-        BufferedReader reader = null;
         try
         {
             String url = String.format(SPIGOT_URL, id);
@@ -61,30 +60,18 @@ public class VersionChecker
 
             //get data from website
             StringBuilder sb = new StringBuilder();
-             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
 
             while((line = reader.readLine()) != null)
                 sb.append(line);
 
+            reader.close();
             return sb.toString();
 
         } catch(Exception e)
         {
             return "";
-        }
-        finally
-        {
-            if(reader != null)
-            {
-                try
-                {
-                    reader.close();
-                } catch (IOException e)
-                {
-
-                }
-            }
         }
     }
 
