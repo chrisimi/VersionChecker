@@ -17,7 +17,7 @@ Maven:
 <dependency>
   <groupId>com.chrisimi</groupId>
   <artifactId>versionchecker</artifactId>
-  <version>1.0-pre</version>
+  <version>1.0</version>
 </dependency>
 ```
 
